@@ -94,6 +94,31 @@ String jsonBody = lerJson("db/pet1.json");
      ;
         System.out.println("O token é " + token );
     }
+@Test(priority = 3)
+
+    public void alterarPet() throws IOException {
+
+    String jsonBody = lerJson("db/pet2.json");
+
+    given()
+
+            //comum em API Rest, antiga era usada "text/xml"
+            .contentType("application/json")
+            .log().all()
+            .body(jsonBody)
 
 
+    .when()
+            .put(uri)
+
+
+    .then()
+            .log().all()
+            .statusCode(200)
+
+    // Checagem da validação
+            .body("name", is("salana"))
+            .body("status", is("sold"))
+    ;
+}
 }

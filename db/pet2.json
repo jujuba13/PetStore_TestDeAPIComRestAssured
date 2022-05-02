@@ -1,0 +1,18 @@
+{
+  "id": 1977022313,
+  "category": {
+    "id": 1,
+    "name": "13jr35azx"
+  },
+  "name": "salana",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 20220502,
+      "name": "TestApi"
+    }
+  ],
+  "status": "sold"
+}
