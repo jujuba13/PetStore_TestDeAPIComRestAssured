@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="petstore.Pet" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-05-02T15:36:58" hostname="DESKTOP-BNMQ2JM" time="6.005">
+<testsuite name="petstore.Pet" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-05-02T17:56:25" hostname="DESKTOP-BNMQ2JM" time="6.109">
   <properties/>
-  <testcase name="incluirPet" classname="petstore.Pet" time="3.729"/>
-  <testcase name="ConsultarPet" classname="petstore.Pet" time="1.075"/>
-  <testcase name="alterarPet" classname="petstore.Pet" time="1.191"/>
+  <testcase name="incluirPet" classname="petstore.Pet" time="3.266"/>
+  <testcase name="ConsultarPet" classname="petstore.Pet" time="0.987"/>
+  <testcase name="alterarPet" classname="petstore.Pet" time="0.92"/>
+  <testcase name="excluirPet" classname="petstore.Pet" time="0.931"/>
   <system-out><![CDATA[Request method:	POST
 Request URI:	https://petstore.swagger.io/v2/pet
 Proxy:			<none>
@@ -35,7 +36,7 @@ Body:
     "status": "available"
 }
 HTTP/1.1 200 OK
-Date: Mon, 02 May 2022 15:37:01 GMT
+Date: Mon, 02 May 2022 17:56:28 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -75,7 +76,7 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
 HTTP/1.1 200 OK
-Date: Mon, 02 May 2022 15:37:03 GMT
+Date: Mon, 02 May 2022 17:56:29 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -134,7 +135,7 @@ Body:
     "status": "sold"
 }
 HTTP/1.1 200 OK
-Date: Mon, 02 May 2022 15:37:04 GMT
+Date: Mon, 02 May 2022 17:56:30 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -160,6 +161,33 @@ Server: Jetty(9.2.9.v20150224)
         }
     ],
     "status": "sold"
+}
+Request method:	DELETE
+Request URI:	https://petstore.swagger.io/v2/pet/1977022313
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Mon, 02 May 2022 17:56:31 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+Server: Jetty(9.2.9.v20150224)
+
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "1977022313"
 }
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

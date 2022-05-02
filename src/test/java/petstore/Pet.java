@@ -122,6 +122,35 @@ String jsonBody = lerJson("db/pet1.json");
             .body("status", is("sold"))
     ;
 }
+@Test(priority = 4)
+
+    public void excluirPet(){
+    String petId = "1977022313";
+
+
+    given()
+
+            //comum em API Rest, antiga era usada "text/xml"
+            .contentType("application/json")
+            .log().all()
+
+
+
+
+    .when()
+            .delete(uri + "/" + petId)
+
+
+    .then()
+            .log().all()
+            .statusCode(200)
+
+    // checagem de validação
+            .body("code", is(200))
+            .body("type", is("unknown"))
+            .body("message", is(petId))
+    ;
+}
 
 
 
