@@ -6,6 +6,7 @@ package petstore;
 //2- Bibliotecas
 
 
+import io.restassured.response.ValidatableResponse;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -20,9 +21,9 @@ import static org.hamcrest.Matchers.contains;
 //3- Classe
 public class Pet {
 //3.1 Atributos
-    // EndereÃ§o da entidade Pet
+    // Endereço da entidade Pet
 String uri= "https://petstore.swagger.io/v2/pet";
-//3.2 MÃ©todos e FunÃ§Ãµes
+//3.2 Métodos e Funções
 
    public String lerJson(String caminhoJson) throws IOException {
 
@@ -30,8 +31,8 @@ String uri= "https://petstore.swagger.io/v2/pet";
     }
 // Incluir - Create - post
 
-    //Identifica o mÃ©todo ou funÃ§Ã£o como um teste para o TestNG
-@Test
+    //Identifica o método ou função como um teste para o TestNG
+@Test(priority =1)
 
  public void incluirPet() throws IOException {
 String jsonBody = lerJson("db/pet1.json");
@@ -47,21 +48,52 @@ String jsonBody = lerJson("db/pet1.json");
             .log().all()
             .body(jsonBody)
 
-    .when()
+            .when()
             .post(uri)
 
-    .then()
+            .then()
             .log().all()
             .statusCode(200)
 
-     // checagem de validaÃ§Ã£o
+     // checagem de validação
             .body("name", is ("salana"))
             .body("status", is ("available"))
-            .body("category.name",is ("Dog"))
+            .body("category.name",is ("13jr35azx"))
             .body("tags.name", contains("TestApi"))
      ;
     }
+    @Test(priority = 2)
 
+    public void ConsultarPet(){
+
+       String petId = "1977022313";
+
+        String token =
+
+     given()
+
+                //comum em API Rest, antiga era usada "text/xml"
+                .contentType("application/json")
+                .log().all()
+
+
+        .when()
+                .get(uri + "/" + petId)
+
+        .then()
+             .log().all()
+             .statusCode(200)
+
+     //checagem para validação
+
+             .body("name", is ("salana"))
+             .body("category.name",is ("13jr35azx"))
+             .body("status", is ("available"))
+     .extract()
+             .path("category.name")
+     ;
+        System.out.println("O token é " + token );
+    }
 
 
 }
