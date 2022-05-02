@@ -108,6 +108,7 @@ String jsonBody = lerJson("db/pet1.json");
             .body(jsonBody)
 
 
+
     .when()
             .put(uri)
 
@@ -121,11 +122,9 @@ String jsonBody = lerJson("db/pet1.json");
             .body("status", is("sold"))
     ;
 }
-@Test
 
-    public void excluirPet(){
 
 
 }
 
-}
+
